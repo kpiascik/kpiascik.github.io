@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Konrad Piascik | Engineering Leadership, AI & Organizational Change</title>
+
+<meta name="description" content="Konrad Piascik writes and speaks about engineering leadership, organizational change, distributed teams, and AI-enabled software development.">
+
+<meta property="og:title" content="Konrad Piascik | Engineering Leadership, AI & Organizational Change">
+<meta property="og:description" content="Engineering leadership, organizational change, distributed teams, and AI-enabled software development.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://konradpiascik.com">
+
+<style>
+    :root {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --card-hover: #26364d;
+        --text-color: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent-color: #38bdf8;
+        --accent-hover: #0ea5e9;
+        --border-color: #334155;
+        --max-width: 960px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.7;
+    }
+
+    a {
+        color: var(--accent-color);
+    }
+
+    a:hover {
+        color: var(--accent-hover);
+    }
+
+    .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    /* Navigation */
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-name {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 24px;
+    }
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+        color: var(--text-color);
+    }
+
+    /* Hero */
+
+    header {
+        padding: 90px 0 80px;
+        max-width: 800px;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        line-height: 1.1;
+        margin: 0 0 24px;
+        letter-spacing: -0.03em;
+    }
+
+    .tagline {
+        color: var(--text-muted);
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        line-height: 1.5;
+        margin: 0 0 32px;
+    }
+
+    .hero-text {
+        font-size: 1.05rem;
+        max-width: 700px;
+        color: #cbd5e1;
+        margin-bottom: 32px;
+    }
+
+    .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 11px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+        background-color: #0a66c2;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #084e96;
+        color: white;
+    }
+
+    .btn-secondary {
+        border: 1px solid var(--border-color);
+        color: var(--text-color);
+    }
+
+    .btn-secondary:hover {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+    }
+
+    /* Sections */
+
+    section {
+        margin-bottom: 80px;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+        margin: 0 0 28px;
+        letter-spacing: -0.01em;
+    }
+
+    .section-intro {
+        color: var(--text-muted);
+        margin-top: -15px;
+        margin-bottom: 28px;
+    }
+
+    /* About */
+
+    .about-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 28px 30px;
+    }
+
+    .about-card p:first-child {
+        margin-top: 0;
+    }
+
+    .about-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Topics */
+
+    .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .topic-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 24px;
+    }
+
+    .topic-card h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    .topic-card p {
+        color: var(--text-muted);
+        margin-bottom: 0;
+        font-size: 0.95rem;
+    }
+
+    /* Talks */
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .video-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 16px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        margin-bottom: 16px;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        border: none;
+    }
+
+    .video-title {
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    /* Newsletter */
+
+    .newsletter {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 32px;
+        text-align: center;
+    }
+
+    .newsletter h2 {
+        margin-bottom: 10px;
+    }
+
+    .newsletter p {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto 22px;
+    }
+
+    .newsletter-placeholder {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+
+    footer {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        padding: 30px 0 40px;
+    }
+
+    footer p {
+        margin: 4px 0;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 700px) {
+        .container {
+            padding: 0 18px;
+        }
+
+        nav {
+            align-items: flex-start;
+        }
+
+        .nav-links {
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        header {
+            padding: 65px 0 60px;
+        }
+
+        .topic-grid,
+        .video-grid {
+            grid-template-columns: 1fr;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Navigation -->
+
+<nav>
+    <a href="/" class="nav-name">Konrad Piascik</a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#topics">Topics</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#newsletter">Newsletter</a>
+    </div>
+</nav>
+
+
+<!-- Hero -->
+
+<header>
+    <h1>Engineering leadership, organizational change &amp; AI.</h1>
+
+    <p class="tagline">
+        Practical lessons from building software, leading engineering teams,
+        and navigating change.
+    </p>
+
+    <p class="hero-text">
+        I'm Konrad Piascik, an engineering leader and conference speaker.
+        I write about the challenges that engineering leaders face as teams,
+        organizations, and the technology they build continue to change.
+    </p>
+
+    <div class="button-group">
+        <a
+            href="https://www.linkedin.com/in/konradpiascik"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary">
+            Connect on LinkedIn
+        </a>
+
+        <a href="#speaking" class="btn btn-secondary">
+            Watch my talks
+        </a>
+    </div>
+</header>
+
+
+<!-- About -->
+
+<section id="about">
+
+    <h2>About</h2>
+
+    <div class="about-card">
+
+        <p>
+            I've spent my career building software and leading engineering
+            organizations across web, mobile, embedded, and cloud
+            technologies.
+        </p>
+
+        <p>
+            My work has included building and scaling distributed teams,
+            working with external partners, navigating organizational
+            change, and helping engineering organizations adopt new
+            technologies and ways of working.
+        </p>
+
+        <p>
+            I'm particularly interested in the intersection of engineering
+            leadership and technology: how leaders structure teams, make
+            decisions, measure effectiveness, and adapt as the technology
+            landscape changes.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Topics -->
+
+<section id="topics">
+
+    <h2>What I write about</h2>
+
+    <p class="section-intro">
+        Practical observations from engineering leadership and technology.
+    </p>
+
+    <div class="topic-grid">
+
+        <div class="topic-card">
+            <h3>Engineering Leadership</h3>
+            <p>
+                Building effective engineering organizations, managing
+                teams, developing leaders, and communicating with executives.
+            </p>
+        </div>
+
+        <div class="topic-card">
+            <h3>Organizational Change</h3>
+            <p>
+                Restructuring teams, distributed organizations, vendors,
+                priorities, and maintaining engineering effectiveness
+                through change.
+            </p>
+        </div>
+
+        <div class="topic-card">
+            <h3>AI &amp; Engineering</h3>
+            <p>
+                AI-assisted development, engineering productivity,
+                agentic workflows, and how AI is changing the role of
+                engineering leaders.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Conference Talks -->
+
+<section id="speaking">
+
+    <h2>Conference Talks</h2>
+
+    <p class="section-intro">
+        Talks and presentations from my work in software engineering
+        and emerging technology.
+    </p>
+
+    <div class="video-grid">
+
+        <div class="video-card">
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/3cLRzMRb1_k"
+                    title="AR In Action 2020"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-title">
+                AR In Action 2020
+            </div>
+
+        </div>
+
+
+        <div class="video-card">
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/ys1o_yV0tW0"
+                    title="Performance &amp; Debugging for Web Developers"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-title">
+                Performance &amp; Debugging for Web Developers
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Newsletter -->
+
+<section id="newsletter">
+
+    <div class="newsletter">
+
+        <h2>Engineering Leadership Notes</h2>
+
+        <p>
+            Occasional notes about engineering leadership, organizational
+            change, AI, and lessons learned from building software and
+            leading teams.
+        </p>
+
+        <p class="newsletter-placeholder">
+            Newsletter signup coming soon.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer>
+
+    <p>
+        &copy; 2026 Konrad Piascik
+    </p>
+
+    <p>
+        <a
+            href="https://www.linkedin.com/in/konradpiascik"
+            target="_blank"
+            rel="noopener noreferrer">
+            LinkedIn
+        </a>
+    </p>
+
+</footer>
+
+</div>
+
+</body> </html>
